@@ -12,6 +12,16 @@ const lock3 = document.getElementById('lock-icon3');
 const lock4 = document.getElementById('lock-icon4');
 const lock5 = document.getElementById('lock-icon5');
 
+//fave icons
+const fave = document.getElementById('heart-icon');
+
+//Colour arrays
+let faveColors = []
+let section1colors = ['e48cf4'];
+let section2colors = ['8ccef4'];
+let section3colors = ['f5f6a7'];
+let section4colors = ['a7f6c1'];
+let section5colors = ['c8a7f6']
 
 //generate hex numbers:
 const generateRandomHex=()=>{
@@ -30,6 +40,7 @@ const changeColor = () => {
     const randomColor = generateRandomHex();
     colorSection1.style.backgroundColor = `#${randomColor}`;
     document.getElementById('whichColour1').innerHTML=`#${randomColor}`;
+    section1colors.push(randomColor)
 }
 
 //change lock
@@ -43,12 +54,14 @@ function changeLock() {
 
 lock.addEventListener('click', changeLock)
 
+
+
 //section2:
 //function to change the color 
-const changeColor2 = () => {
+function changeColor2() {
   const randomColor = generateRandomHex();
   colorSection2.style.backgroundColor = `#${randomColor}`;
-  document.getElementById('whichColour2').innerHTML=`#${randomColor}`;
+  document.getElementById('whichColour2').innerHTML = `#${randomColor}`;
 }
 
 //change lock2
@@ -152,3 +165,62 @@ const activateColorChange = (event) => {
 };
 
 document.addEventListener('keydown', activateColorChange)
+
+//favourite colors section
+
+//panel
+function togglePanel() {
+  const sidePanel = document.getElementById("sidePanel");
+  sidePanel.classList.toggle("open");
+}
+
+
+
+//adding a table
+const colorTableBody = document.querySelector("#colorTable tbody");
+
+function addColorToTable(index, color) {
+    const newRow = document.createElement("tr");
+    const colorCell = document.createElement("td");
+
+    // indexCell.textContent = index;
+    colorCell.style.backgroundColor = color;
+    // colorCell.style.width="200px";
+    // colorCell.style.width="50px";
+    // colorCell.style.innerHTML=`#${color}`
+
+    // newRow.appendChild(indexCell);
+    newRow.appendChild(colorCell);
+    colorTableBody.appendChild(newRow);
+
+    colorCell.style.backgroundColor=`#${color}`
+}
+
+//add to faves
+function addToFaves() {
+  color = section1colors[section1colors.length-1]
+  faveColors.push(color);
+  addColorToTable(faveColors.length, color);
+  return color;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave.addEventListener('click', addToFaves)
+});
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const addColorButton = document.querySelector("#addColorButton");
+
+//   addColorButton.addEventListener("click", () => {
+//       const newColor = prompt("Enter a color (e.g. red, blue, #FF9900):");
+//       if (newColor) {
+//           addToFaves(newColor); // Call your function to add color to faves
+//       }
+//   });
+// });
+
+
+
+
+
+

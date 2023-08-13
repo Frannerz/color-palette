@@ -11,33 +11,50 @@
     <title>Colour Palette Selector</title>
 </head>
 <body>
+  
     <header>
         <h1>Colour Palette Creator</h1>
+        <img src="./images/filledHeart.png" class="faves toggle-panel-button"
+         onclick="togglePanel()">
     </header>
-    <div class="flex-container">
+    <main class="flex-container">
         <section class="flex-item" id="colour1">
             <p id="whichColour1">#e48cf4</p>
-            <img src="./images/lock.png" id="lock-icon" title="Lock in this colour!">
+            <img src="./images/lock.png" id="lock-icon" title="Lock in this colour!" alt="lock"><br><br>
+            <img src="./images/emptyHeart.png" id="heart-icon" title="Add to faves!">
         </section>
         <section class="flex-item" id="colour2">
             <p id="whichColour2">#8ccef4</p>
-            <img src="./images/lock.png" id="lock-icon2" title="Lock in this colour!">
+            <img src="./images/lock.png" id="lock-icon2" title="Lock in this colour!" alt="lock"><br><br>
+            <img src="./images/emptyHeart.png" id="heart-icon" title="Add to faves!">
         </section>
         <section class="flex-item" id="colour3">
             <p id="whichColour3">#f5f6a7</p>
-            <img src="./images/lock.png" id="lock-icon3" title="Lock in this colour!">
+            <img src="./images/lock.png" id="lock-icon3" title="Lock in this colour!" alt="lock"><br><br>
+            <img src="./images/emptyHeart.png" id="heart-icon" title="Add to faves!">
         </section>
         <section class="flex-item" id="colour4">
             <p id="whichColour4">#a7f6c1</p>
-            <img src="./images/lock.png" id="lock-icon4" title="Lock in this colour!">
+            <img src="./images/lock.png" id="lock-icon4" title="Lock in this colour!" alt="lock"><br><br>
+            <img src="./images/emptyHeart.png" id="heart-icon" title="Add to faves!">
         </section>
         <section class="flex-item" id="colour5">
             <p id="whichColour5">#c8a7f6</p>
-            <img src="./images/lock.png" id="lock-icon5" title="Lock in this colour!">
+            <img src="./images/lock.png" id="lock-icon5" title="Lock in this colour!" alt="lock"><br><br>
+            <img src="./images/emptyHeart.png" id="heart-icon" title="Add to faves!">
         </section>
+    </main>
+    <div class="side-panel" id="sidePanel">
+        <img src="./images/close_cross.png" class="toggle-panel-button"
+        onclick="togglePanel()" alt="close">
+        <h2>Faves</h2>
+        <table id="colorTable">
+            <tbody>
+
+            </tbody>
+        </table>
     </div>
-
-
+  
     <script src="script.js"></script> 
 </body>
 </html>

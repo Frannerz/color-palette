@@ -3,17 +3,29 @@ html {
 }
 header {
     background-color: white;
-    height:7vh;
+    height: 7vh;
     width: 100%;
-    text-align: center; 
-    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 h1 {
     font-family: 'Barriecito', cursive;
     font-size: 3rem;
-    
+    margin: 0;
+    text-align: center; 
+    flex: 1; /* Allow the h1 to grow and take available space */
 }
+
+.faves {
+    width: auto;
+    height: auto;
+    margin-right: 50px;
+}
+
+
 
 .flex-container {
     width:100%;
@@ -22,13 +34,16 @@ h1 {
     margin:0;
   }
   
+
 .flex-item {
     width:20%;
     margin:0;
     text-align: center;
     padding-top: 40vh;
 }
-
+img[alt="lock"]{
+    max-width: 45px;
+}
 img{
     max-width: 50px;
 }
@@ -56,4 +71,38 @@ img{
 p{
     font-family: 'Share Tech Mono', monospace;
     font-size: 1.4rem;
+}
+
+/*side panel settings*/
+h2 {
+    font-family: 'Barriecito', cursive;
+    font-size: 2rem;
+}
+
+.side-panel {
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    transition: right 0.3s ease;
+    
+}
+
+/* Adjust the appearance when the panel is open */
+.side-panel.open {
+    right: 0;
+    text-align: center;
+}
+
+/* Style the toggle button */
+.toggle-panel-button {
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+img[alt="close"]{
+    max-width: 45px;
 }
