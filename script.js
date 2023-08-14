@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //favourites messages!
 
-const messageElement=document.getElementsByClassName('message');
+const messageElement=document.getElementById('message');
 
 function addedToFavesMessage() {
     messageElement.textContent = 'Colour added to Faves!';

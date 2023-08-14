@@ -80,7 +80,7 @@ tr {
 img[alt="copy"]{
     max-width: 45px;
 }
-.message menu{
+#message{
     display: none;
     position: fixed;
     top: 50%;
