@@ -53,7 +53,7 @@ const changeColor = () => {
     colorSection1.style.backgroundColor = `#${randomColor}`;
     document.getElementById('whichColour1').innerHTML=`#${randomColor}`;
     section1colors.push(randomColor);
-    fave.src="images/emptyHeart.png";
+    fave1.src="images/emptyHeart.png";
     fave2.src="images/emptyHeart.png";
     fave3.src="images/emptyHeart.png";
     fave4.src="images/emptyHeart.png";
