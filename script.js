@@ -5,8 +5,15 @@ const colorSection3 = document.getElementById('colour3');
 const colorSection4 = document.getElementById('colour4');
 const colorSection5 = document.getElementById('colour5');
 
+//colour text 
+const colorText1 = document.getElementById('whichColour1');
+const colorText2 = document.getElementById('whichColour2');
+const colorText3 = document.getElementById('whichColour3');
+const colorText4 = document.getElementById('whichColour4');
+const colorText5 = document.getElementById('whichColour5');
+
 //lock icons
-const lock = document.getElementById('lock-icon');
+const lock1 = document.getElementById('lock-icon');
 const lock2 = document.getElementById('lock-icon2');
 const lock3 = document.getElementById('lock-icon3');
 const lock4 = document.getElementById('lock-icon4');
@@ -27,9 +34,15 @@ let section3colors = ['f5f6a7'];
 let section4colors = ['a7f6c1'];
 let section5colors = ['c8a7f6'];
 
+//Favourites collection:
+let favouriteCollection = {}
+
+//Favourites section variables
+const clearFavourites = document.getElementById('clearFaves')
+const colorTableBody = document.querySelector("#colorTable tbody");
 
 //Copy buttons
-const copyButton = document.getElementById("copy");
+const copyButton1 = document.getElementById("copy");
 const copyButton2 = document.getElementById("copy2");
 const copyButton3 = document.getElementById("copy3");
 const copyButton4 = document.getElementById("copy4");
@@ -46,23 +59,37 @@ const generateRandomHex=()=>{
     return result;
   }
 
-//section1:
-//function to change the color 
-const changeColor = () => {
-    const randomColor = generateRandomHex();
-    colorSection1.style.backgroundColor = `#${randomColor}`;
-    document.getElementById('whichColour1').innerHTML=`#${randomColor}`;
-    section1colors.push(randomColor);
-    fave1.src="images/emptyHeart.png";
-    fave2.src="images/emptyHeart.png";
-    fave3.src="images/emptyHeart.png";
-    fave4.src="images/emptyHeart.png";
-    fave5.src="images/emptyHeart.png";
-    removeCopiedImage ()
+
+//functions to change the colors
+function getColour1 (){
+  const randomColor1 = generateRandomHex();
+  changeColorNew(randomColor1,colorSection1,colorText1,section1colors);
+}
+function getColour2 (){
+  const randomColor2 = generateRandomHex();
+  changeColorNew(randomColor2,colorSection2,colorText2,section3colors);
+}
+function getColour3 (){
+  const randomColor3 = generateRandomHex();
+  changeColorNew(randomColor3,colorSection3,colorText3,section3colors);
+}
+function getColour4 (){
+  const randomColor4 = generateRandomHex();
+  changeColorNew(randomColor4,colorSection4,colorText4,section4colors);
+}
+function getColour5 (){
+  const randomColor5 = generateRandomHex();
+  changeColorNew(randomColor5,colorSection5,colorText5,section5colors);
 }
 
-//change lock
-function changeLock() {
+const changeColorNew = (randomColor, colorSection,colorText,array ) => {
+  colorSection.style.backgroundColor = `#${randomColor}`;
+  colorText.innerHTML=`#${randomColor}`;
+  array.push(randomColor);
+}
+
+//change lock functions
+function changeLock(lock) {
   if (lock.src.endsWith("lock.png")) {
     lock.src = "images/lockClosed.png";
   } else if (lock.src.endsWith("lockClosed.png")) {
@@ -70,118 +97,48 @@ function changeLock() {
   }
 }
 
-lock.addEventListener('click', changeLock)
+lock1.addEventListener ('click', function() {
+  changeLock(lock1);
+});
+lock2.addEventListener ('click', function() {
+  changeLock(lock2);
+});
+lock3.addEventListener ('click', function() {
+  changeLock(lock3);
+});
+lock4.addEventListener ('click', function() {
+  changeLock(lock4);
+});
+lock5.addEventListener ('click', function() {
+  changeLock(lock5);
+});
 
-
-
-//section2:
-//function to change the color 
-function changeColor2() {
-  const randomColor = generateRandomHex();
-  colorSection2.style.backgroundColor = `#${randomColor}`;
-  document.getElementById('whichColour2').innerHTML = `#${randomColor}`;
-  section2colors.push(randomColor);
-}
-
-//change lock2
-function changeLock2() {
-  if (lock2.src.endsWith("lock.png")) {
-    lock2.src = "images/lockClosed.png";
-  } else if (lock2.src.endsWith("lockClosed.png")) {
-    lock2.src = "images/lock.png";
-  }
-}
-
-lock2.addEventListener('click', changeLock2)
-
-
-//section3:
-//function to change the color 
-const changeColor3 = () => {
-  const randomColor = generateRandomHex();
-  colorSection3.style.backgroundColor = `#${randomColor}`;
-  document.getElementById('whichColour3').innerHTML=`#${randomColor}`;
-  section3colors.push(randomColor);
-}
-
-//change lock3
-function changeLock3() {
-  if (lock3.src.endsWith("lock.png")) {
-    lock3.src = "images/lockClosed.png";
-  } else if (lock3.src.endsWith("lockClosed.png")) {
-    lock3.src = "images/lock.png";
-  }
-}
-
-lock3.addEventListener('click', changeLock3)
-
-//section4:
-//function to change the color 
-const changeColor4 = () => {
-  const randomColor = generateRandomHex();
-  colorSection4.style.backgroundColor = `#${randomColor}`;
-  document.getElementById('whichColour4').innerHTML=`#${randomColor}`;
-  section4colors.push(randomColor);
-}
-
-//change lock4
-function changeLock4() {
-  if (lock4.src.endsWith("lock.png")) {
-    lock4.src = "images/lockClosed.png";
-  } else if (lock4.src.endsWith("lockClosed.png")) {
-    lock4.src = "images/lock.png";
-  }
-}
-
-lock4.addEventListener('click', changeLock4)
-
-//section5:
-//function to change the color 
-const changeColor5 = () => {
-  const randomColor = generateRandomHex();
-  colorSection5.style.backgroundColor = `#${randomColor}`;
-  document.getElementById('whichColour5').innerHTML=`#${randomColor}`;
-  section5colors.push(randomColor);
-}
-
-//change lock5
-
-
-function changeLock5() {
-  if (lock5.src.endsWith("lock.png")) {
-    lock5.src = "images/lockClosed.png";
-  } else if (lock5.src.endsWith("lockClosed.png")) {
-    lock5.src = "images/lock.png";
-  }
-}
-
-lock5.addEventListener('click', changeLock5)
 
 // Listen for the space key press event and activate color change if lock is open
 const activateColorChange = (event) => {
     if (event.code === 'Space' || event.code === 'SpaceBar') {
-      if(lock.src.endsWith("lock.png")){
-        changeColor();
-      } else if (lock.src.endsWith("lockClosed.png")){
-        lock.removeEventListener('click',activateColorChange);
+      if(lock1.src.endsWith("lock.png")){
+        getColour1();
+      } else if (lock1.src.endsWith("lockClosed.png")){
+        lock1.removeEventListener('click',activateColorChange);
       }
       if(lock2.src.endsWith("lock.png")){
-        changeColor2();
+        getColour2();
       } else if (lock2.src.endsWith("lockClosed.png")){
         lock2.removeEventListener('click',activateColorChange);
       }
       if(lock3.src.endsWith("lock.png")){
-        changeColor3();
+        getColour3();
       } else if (lock3.src.endsWith("lockClosed.png")){
         lock3.removeEventListener('click',activateColorChange);
       }
       if(lock4.src.endsWith("lock.png")){
-        changeColor4();
+        getColour4();
       } else if (lock4.src.endsWith("lockClosed.png")){
         lock4.removeEventListener('click',activateColorChange);
       }
       if(lock5.src.endsWith("lock.png")){
-        changeColor5();
+        getColour5();
       } else if (lock5.src.endsWith("lockClosed.png")){
         lock5.removeEventListener('click',activateColorChange);
       }
@@ -191,7 +148,6 @@ const activateColorChange = (event) => {
 document.addEventListener('keydown', activateColorChange)
 
 //favourite colors section
-
 //side panel function
 function togglePanel() {
   const sidePanel = document.getElementById("sidePanel");
@@ -200,8 +156,6 @@ function togglePanel() {
 
 
 //adding a table of favourite colours
-const colorTableBody = document.querySelector("#colorTable tbody");
-
 function addColorToTable(index, color) {
     const newRow = document.createElement("tr");
     const colorCell = document.createElement("td");
@@ -212,8 +166,6 @@ function addColorToTable(index, color) {
     newRow.appendChild(colorCell);
     colorTableBody.appendChild(newRow);
 }
-
-const clearFavourites = document.getElementById('clearFaves')
 
 function clearFaves(){
   const colorTableBody = document.querySelector("#colorTable tbody");
@@ -252,67 +204,53 @@ function emptyHearts(){
   }
 }
 
-clearFavourites.addEventListener('click', clearFaves)
-
 
 // adding numbers to faves
-//color 1
-
-
 function addColor1toFaves(){
   color1 = section1colors[section1colors.length - 1];
   addToFaves(color1, fave1)
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave1.addEventListener('click', addColor1toFaves)
-});
-
-//colour 2
-
-
 function addColor2toFaves(){
   color2 = section2colors[section2colors.length - 1];
   addToFaves(color2, fave2)
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave2.addEventListener('click', addColor2toFaves)
-});
-
-//colour 3
 
 function addColor3toFaves(){
   color3 = section3colors[section3colors.length - 1];
   addToFaves(color3, fave3)
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  fave3.addEventListener('click', addColor3toFaves)
-});
-
-//colour 4
 function addColor4toFaves(){
   color4 = section4colors[section4colors.length - 1];
   addToFaves(color4, fave4)
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave4.addEventListener('click', addColor4toFaves)
-});
-
-//colour 5
-
 
 function addColor5toFaves(){
   color5 = section5colors[section5colors.length - 1];
   addToFaves(color5, fave5)
 };
 
+// Event listeners for fave functions
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave1.addEventListener('click', addColor1toFaves)
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave2.addEventListener('click', addColor2toFaves)
+});
+document.addEventListener("DOMContentLoaded", function () {
+  fave3.addEventListener('click', addColor3toFaves)
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave4.addEventListener('click', addColor4toFaves)
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   fave5.addEventListener('click', addColor5toFaves)
 });
-
+clearFavourites.addEventListener('click', clearFaves)
 
 //add to faves function
 function addToFaves(color, fave) {
@@ -322,15 +260,19 @@ function addToFaves(color, fave) {
     addColorToTable(faveColors.length, color);
     addedToFavesMessage();
     hideNoFaves();
+  } else if (faveColors.includes(color) && faveColors.length<10){
+    colourAlreadyAdded()
   } else {
     favesFullMessage()
   }
+  setTimeout(() => {
+    fave.src="images/emptyHeart.png";
+  }, 200);
   return null; 
 }
 
 
 //favourites messages!
-
 const messageElement=document.getElementById('message');
 
 function addedToFavesMessage() {
@@ -349,20 +291,49 @@ function addedToFavesMessage() {
   }, 1000);
   }
 
+  function colourAlreadyAdded() {
+    messageElement.textContent = 'Colour already added to favourites';
+    messageElement.style.display = "block";
+  setTimeout(() => {
+    messageElement.style.display = "none";
+  }, 1000);
+  }
 
+//copy to clipboard functions
+function copyColour1(){
+  const colorCode1 = whichColour1.textContent;
+  copyColourCode(colorCode1, copyButton1)
+}
 
-//copy to clipboard functions for 1st color
+function copyColour2(){
+  const colorCode2 = whichColour2.textContent;
+  copyColourCode(colorCode2, copyButton2)
+}
 
-//find the colorCode and initialise copyToClipboard function
-document.getElementById("copy").addEventListener("click", () => {
-  const colorCode = whichColour1.textContent; 
+function copyColour3(){
+  const colorCode3 = whichColour3.textContent;
+  copyColourCode(colorCode3, copyButton3)
+}
+
+function copyColour4(){
+  const colorCode4 = whichColour4.textContent;
+  copyColourCode(colorCode4, copyButton4)
+}
+
+function copyColour5(){
+  const colorCode5 = whichColour5.textContent;
+  copyColourCode(colorCode5, copyButton5)
+}
+
+// copy colour function (initiated by calling other functions)
+function copyColourCode(colorCode, copyButton){
   copyToClipboard(colorCode);
   copyButton.src="images/copyFilled.png"
-  copyButton2.src="images/copy.png";
-  copyButton3.src="images/copy.png";
-  copyButton4.src="images/copy.png";
-  copyButton5.src="images/copy.png";
-});
+  setTimeout(() => {
+    copyButton.src="images/copy.png";
+  }, 200);
+};
+
 
 //function to initialise show message
 //.then is a promise, executed if 'writeText' is successful
@@ -377,73 +348,18 @@ function copyToClipboard(text) {
     });
 }
 
-//const messageElement=document.getElementById('message');
-
-//display the message
+//display the copied message
 function showMessage(message) {
   messageElement.textContent = message;
   messageElement.style.display = "block";
   setTimeout(() => {
     messageElement.style.display = "none";
-  }, 1000);
+  }, 500);
 }
 
-//copy to clipboard function for 2nd color
-//find the colorCode and initialise copyToClipboard function
-document.getElementById("copy2").addEventListener("click", () => {
-  const colorCode2 = whichColour2.textContent; 
-  copyToClipboard(colorCode2);
-  copyButton2.src="images/copyFilled.png"
-  copyButton.src="images/copy.png";
-  copyButton3.src="images/copy.png";
-  copyButton4.src="images/copy.png";
-  copyButton5.src="images/copy.png";
-});
-
-
-//copy to clipboard function for 3rd color
-//find the colorCode and initialise copyToClipboard function
-document.getElementById("copy3").addEventListener("click", () => {
-  const colorCode3 = whichColour3.textContent; 
-  copyToClipboard(colorCode3);
-  copyButton3.src="images/copyFilled.png"
-  copyButton.src="images/copy.png";
-  copyButton2.src="images/copy.png";
-  copyButton4.src="images/copy.png";
-  copyButton5.src="images/copy.png";
-});
-
-//copy to clipboard function for 4th color
-//find the colorCode and initialise copyToClipboard function
-document.getElementById("copy4").addEventListener("click", () => {
-  const colorCode4 = whichColour4.textContent; 
-  copyToClipboard(colorCode4);
-  copyButton4.src="images/copyFilled.png"
-  copyButton.src="images/copy.png";
-  copyButton3.src="images/copy.png";
-  copyButton2.src="images/copy.png";
-  copyButton5.src="images/copy.png";
-});
-
-//copy to clipboard function for 4th color
-//find the colorCode and initialise copyToClipboard function
-document.getElementById("copy5").addEventListener("click", () => {
-  const colorCode5 = whichColour5.textContent; 
-  copyToClipboard(colorCode5);
-  copyButton5.src="images/copyFilled.png"
-  copyButton.src="images/copy.png";
-  copyButton3.src="images/copy.png";
-  copyButton4.src="images/copy.png";
-  copyButton2.src="images/copy.png";
-});
-
-function removeCopiedImage (){
-  copyButton.src="images/copy.png"
-  copyButton2.src="images/copy.png";
-  copyButton3.src="images/copy.png";
-  copyButton4.src="images/copy.png";
-  copyButton5.src="images/copy.png";
-}
-
-
-
+//event listeners for copy buttons
+copyButton1.addEventListener("click", copyColour1) 
+copyButton2.addEventListener("click", copyColour2);
+copyButton3.addEventListener("click", copyColour3);
+copyButton4.addEventListener("click", copyColour4);
+copyButton5.addEventListener("click", copyColour5);
