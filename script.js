@@ -25,15 +25,15 @@ let section1colors = ['e48cf4'];
 let section2colors = ['8ccef4'];
 let section3colors = ['f5f6a7'];
 let section4colors = ['a7f6c1'];
-let section5colors = ['c8a7f6']
+let section5colors = ['c8a7f6'];
 
 
 //Copy buttons
-const copyButton = document.getElementById("copy")
-const copyButton2 = document.getElementById("copy2")
-const copyButton3 = document.getElementById("copy3")
-const copyButton4 = document.getElementById("copy4")
-const copyButton5 = document.getElementById("copy5")
+const copyButton = document.getElementById("copy");
+const copyButton2 = document.getElementById("copy2");
+const copyButton3 = document.getElementById("copy3");
+const copyButton4 = document.getElementById("copy4");
+const copyButton5 = document.getElementById("copy5");
 
 //generate hex numbers:
 const generateRandomHex=()=>{
@@ -145,6 +145,8 @@ const changeColor5 = () => {
 }
 
 //change lock5
+
+
 function changeLock5() {
   if (lock5.src.endsWith("lock.png")) {
     lock5.src = "images/lockClosed.png";
@@ -211,25 +213,66 @@ function addColorToTable(index, color) {
     colorTableBody.appendChild(newRow);
 }
 
+const clearFavourites = document.getElementById('clearFaves')
+
+function clearFaves(){
+  const colorTableBody = document.querySelector("#colorTable tbody");
+  
+  while (colorTableBody.firstChild) {
+    colorTableBody.removeChild(colorTableBody.firstChild);
+  }
+  faveColors = [];
+  showNoFaves();
+  emptyHearts();
+}
+
+function showNoFaves(){
+  document.getElementById('noFaves').style.display='block';
+  hideClearButton()
+}
+
 function hideNoFaves(){
   document.getElementById('noFaves').style.display='none';
+  showClearButton()
 }
+
+
+function showClearButton(){
+  clearFavourites.style.display='block';
+}
+
+function hideClearButton(){
+  clearFavourites.style.display='none';
+}
+
+function emptyHearts(){
+  const hearts = document.getElementsByClassName('heart');
+  for(let i =0; i<hearts.length; i++){
+    hearts[i].src="images/emptyHeart.png"
+  }
+}
+
+clearFavourites.addEventListener('click', clearFaves)
+
 
 // adding numbers to faves
 //color 1
-color1 = section1colors[section1colors.length - 1];
+
 
 function addColor1toFaves(){
+  color1 = section1colors[section1colors.length - 1];
   addToFaves(color1, fave1)
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   fave1.addEventListener('click', addColor1toFaves)
 });
 
 //colour 2
-color2 = section2colors[section2colors.length - 1];
+
 
 function addColor2toFaves(){
+  color2 = section2colors[section2colors.length - 1];
   addToFaves(color2, fave2)
 };
 
@@ -238,9 +281,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //colour 3
-color3 = section3colors[section3colors.length - 1];
 
 function addColor3toFaves(){
+  color3 = section3colors[section3colors.length - 1];
   addToFaves(color3, fave3)
 };
 
@@ -249,9 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //colour 4
-color4 = section4colors[section4colors.length - 1];
-
 function addColor4toFaves(){
+  color4 = section4colors[section4colors.length - 1];
   addToFaves(color4, fave4)
 };
 
@@ -260,9 +302,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //colour 5
-color5 = section5colors[section5colors.length - 1];
+
 
 function addColor5toFaves(){
+  color5 = section5colors[section5colors.length - 1];
   addToFaves(color5, fave5)
 };
 

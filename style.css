@@ -78,6 +78,16 @@ tr {
     display:block;
 }
 
+
+#clearFaves{
+    display:none;
+    text-align: center;
+    font-family: 'Barriecito', cursive;
+    margin: 20px auto;
+    font-size: 1.3rem;
+
+}
+
 /* copy to clipboard */
 
 img[alt="copy"]{
