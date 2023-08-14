@@ -96,6 +96,7 @@ img[alt="copy"]{
     font-size: 1.4rem;
 }
 
+/* Main colours area */
 
 .flex-container {
     width:100%;
@@ -118,6 +119,7 @@ img[alt="lock"]{
 img{
     max-width: 50px;
 }
+
 #colour1 {
     background-color: #e48cf4;
 }
