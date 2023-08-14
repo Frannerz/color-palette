@@ -80,7 +80,7 @@ tr {
 img[alt="copy"]{
     max-width: 45px;
 }
-.message {
+.message menu{
     display: none;
     position: fixed;
     top: 50%;
@@ -113,6 +113,14 @@ img[alt="copy"]{
     text-align: center;
     padding-top: 40vh;
 }
+
+.menu {
+    display: block;
+    margin: 0 auto;
+    padding:10px;
+    
+}
+
 img[alt="lock"]{
     max-width: 45px;
 }
