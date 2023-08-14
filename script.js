@@ -215,14 +215,14 @@ function addColorToTable(index, color) {
 
 //add to faves for 1st color
 function addToFaves() {
-  
   color = section1colors[section1colors.length - 1];
-
   if (!faveColors.includes(color) && faveColors.length<10) {
     fave.src="images/filledHeart.png";
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
-    return color;
+    addedToFavesMessage()
+  } else {
+    favesFullMessage()
   }
   return null; 
 }
@@ -240,7 +240,9 @@ function addToFaves2() {
     fave2.src="images/filledHeart.png";
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
-    return color;
+    addedToFavesMessage()
+  } else {
+    favesFullMessage()
   }
   return null; 
 }
@@ -251,14 +253,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //add to faves for 3rd color
 function addToFaves3() {
-  
   color = section3colors[section3colors.length - 1];
 
   if (!faveColors.includes(color)&& faveColors.length<10) {
     fave3.src="images/filledHeart.png";
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
-    return color;
+    addedToFavesMessage()
+  } else {
+    favesFullMessage()
   }
   return null; 
 }
@@ -276,7 +279,9 @@ function addToFaves4() {
     fave4.src="images/filledHeart.png"
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
-    return color;
+    addedToFavesMessage()
+  } else {
+    favesFullMessage()
   }
   return null; 
 }
@@ -287,14 +292,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //add to faves for 5th color
 function addToFaves5() {
-  
   color = section5colors[section5colors.length - 1];
-
   if (!faveColors.includes(color)&& faveColors.length<10) {
     fave5.src="images/filledHeart.png"
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
+    addedToFavesMessage()
+  } else {
+    favesFullMessage()
   }
+  
   return null; 
 }
 
@@ -302,6 +309,25 @@ document.addEventListener("DOMContentLoaded", function () {
   fave5.addEventListener('click', addToFaves5)
 }); 
 
+//favourites messages!
+
+const messageElement=document.getElementById('message');
+
+function addedToFavesMessage() {
+    messageElement.textContent = 'Colour added to Faves!';
+    messageElement.style.display = "block";
+  setTimeout(() => {
+    messageElement.style.display = "none";
+  }, 1000);
+  } 
+
+ function favesFullMessage() {
+    messageElement.textContent = 'Favourites list is full';
+    messageElement.style.display = "block";
+  setTimeout(() => {
+    messageElement.style.display = "none";
+  }, 1000);
+  }
 
 
 
@@ -331,7 +357,7 @@ function copyToClipboard(text) {
     });
 }
 
-const messageElement=document.getElementById('message');
+//const messageElement=document.getElementById('message');
 
 //display the message
 function showMessage(message) {
@@ -400,24 +426,4 @@ function removeCopiedImage (){
 }
 
 
-// //refactored code for faves not working
-// function addToFaves(colorIndex, colorsArray, faveElement) {
-//   faveElement.src = "images/filledHeart.png";
-//   color = colorsArray[colorsArray.length - 1];
-
-//   if (!faveColors.includes(color)) {
-//     faveColors.push(color);
-//     addColorToTable(faveColors.length, color);
-//     return color;
-//   }
-//   return null;
-// }
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   for (let i = 1; i <= 5; i++) {
-//     const faveElement = document.getElementById(`fave${i}`);
-//     const colorsArray = window[`section${i}colors`]; 
-//     faveElement.addEventListener('click', () => addToFaves(i, colorsArray, faveElement));
-//   }
-// });
 

@@ -17,7 +17,10 @@
         <img src="./images/filledHeart.png" class="faves toggle-panel-button"
          onclick="togglePanel()">
     </header>
-    <main class="flex-container">
+  
+  <div class="wrapContainer">
+
+    <div class="flex-container">
         <section class="flex-item" id="colour1">
             <p id="whichColour1" class="color">#e48cf4</p>
             <img src="./images/copy.png" id="copy" class="copy color" alt="copy" title="Copy this colour code!">
@@ -58,10 +61,8 @@
             <img src="./images/lock.png" id="lock-icon5" title="Lock in this colour!" alt="lock"><br><br>
             <img src="./images/emptyHeart.png" class="addToFaves" id="fave5" title="Add to faves!">
         </section>
-    </main>
+    </div>
     <div class="side-panel" id="sidePanel">
-        <img src="./images/close_cross.png" class="toggle-panel-button"
-        onclick="togglePanel()" alt="close">
         <h2>Faves</h2>
         <table id="colorTable">
             <tbody>
@@ -69,7 +70,8 @@
             </tbody>
         </table>
     </div>
-  
+
+  </div>
     <script src="script.js"></script> 
 </body>
 </html>
