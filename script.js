@@ -28,11 +28,11 @@ const fave5 = document.getElementById('fave5');
 
 //Colour arrays
 let faveColors = []
-let section1colors = ['e48cf4'];
-let section2colors = ['8ccef4'];
-let section3colors = ['f5f6a7'];
-let section4colors = ['a7f6c1'];
-let section5colors = ['c8a7f6'];
+let section1colors = ['E48CF4'];
+let section2colors = ['8CCEf4'];
+let section3colors = ['F5F6A7'];
+let section4colors = ['A7F6C1'];
+let section5colors = ['C8A7F6'];
 
 //Favourites collection:
 let favouriteCollection = {}
@@ -67,7 +67,7 @@ function getColour1 (){
 }
 function getColour2 (){
   const randomColor2 = generateRandomHex();
-  changeColorNew(randomColor2,colorSection2,colorText2,section3colors);
+  changeColorNew(randomColor2,colorSection2,colorText2,section2colors);
 }
 function getColour3 (){
   const randomColor3 = generateRandomHex();
@@ -87,32 +87,6 @@ const changeColorNew = (randomColor, colorSection,colorText,array ) => {
   colorText.innerHTML=`#${randomColor}`;
   array.push(randomColor);
 }
-
-//change lock functions
-function changeLock(lock) {
-  if (lock.src.endsWith("lock.png")) {
-    lock.src = "images/lockClosed.png";
-  } else if (lock.src.endsWith("lockClosed.png")) {
-    lock.src = "images/lock.png";
-  }
-}
-
-lock1.addEventListener ('click', function() {
-  changeLock(lock1);
-});
-lock2.addEventListener ('click', function() {
-  changeLock(lock2);
-});
-lock3.addEventListener ('click', function() {
-  changeLock(lock3);
-});
-lock4.addEventListener ('click', function() {
-  changeLock(lock4);
-});
-lock5.addEventListener ('click', function() {
-  changeLock(lock5);
-});
-
 
 // Listen for the space key press event and activate color change if lock is open
 const activateColorChange = (event) => {
@@ -146,6 +120,34 @@ const activateColorChange = (event) => {
 };
 
 document.addEventListener('keydown', activateColorChange)
+
+
+//change lock functions
+function changeLock(lock) {
+  if (lock.src.endsWith("lock.png")) {
+    lock.src = "images/lockClosed.png";
+  } else if (lock.src.endsWith("lockClosed.png")) {
+    lock.src = "images/lock.png";
+  }
+}
+
+lock1.addEventListener ('click', function() {
+  changeLock(lock1);
+});
+lock2.addEventListener ('click', function() {
+  changeLock(lock2);
+});
+lock3.addEventListener ('click', function() {
+  changeLock(lock3);
+});
+lock4.addEventListener ('click', function() {
+  changeLock(lock4);
+});
+lock5.addEventListener ('click', function() {
+  changeLock(lock5);
+});
+
+
 
 //favourite colors section
 //side panel function
