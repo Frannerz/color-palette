@@ -13,7 +13,7 @@ const lock4 = document.getElementById('lock-icon4');
 const lock5 = document.getElementById('lock-icon5');
 
 //fave icons
-const fave = document.getElementById('fave1');
+const fave1 = document.getElementById('fave1');
 const fave2 = document.getElementById('fave2');
 const fave3 = document.getElementById('fave3');
 const fave4 = document.getElementById('fave4');
@@ -204,110 +204,87 @@ function addColorToTable(index, color) {
     const newRow = document.createElement("tr");
     const colorCell = document.createElement("td");
     
-    colorCell.style.backgroundColor=`#${color}`
-    colorCell.textContent = `#${color}`
+    colorCell.style.backgroundColor=`#${color}`;
+    colorCell.textContent = `#${color}`;
 
     newRow.appendChild(colorCell);
     colorTableBody.appendChild(newRow);
 }
 
-// adding numbers to faves
+function hideNoFaves(){
+  document.getElementById('noFaves').style.display='none';
+}
 
-//add to faves for 1st color
-function addToFaves() {
-  color = section1colors[section1colors.length - 1];
+// adding numbers to faves
+//color 1
+color1 = section1colors[section1colors.length - 1];
+
+function addColor1toFaves(){
+  addToFaves(color1, fave1)
+}
+document.addEventListener("DOMContentLoaded", function () {
+  fave1.addEventListener('click', addColor1toFaves)
+});
+
+//colour 2
+color2 = section2colors[section2colors.length - 1];
+
+function addColor2toFaves(){
+  addToFaves(color2, fave2)
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave2.addEventListener('click', addColor2toFaves)
+});
+
+//colour 3
+color3 = section3colors[section3colors.length - 1];
+
+function addColor3toFaves(){
+  addToFaves(color3, fave3)
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave3.addEventListener('click', addColor3toFaves)
+});
+
+//colour 4
+color4 = section4colors[section4colors.length - 1];
+
+function addColor4toFaves(){
+  addToFaves(color4, fave4)
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave4.addEventListener('click', addColor4toFaves)
+});
+
+//colour 5
+color5 = section5colors[section5colors.length - 1];
+
+function addColor5toFaves(){
+  addToFaves(color5, fave5)
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  fave5.addEventListener('click', addColor5toFaves)
+});
+
+
+//add to faves function
+function addToFaves(color, fave) {
   if (!faveColors.includes(color) && faveColors.length<10) {
     fave.src="images/filledHeart.png";
     faveColors.push(color);
     addColorToTable(faveColors.length, color);
-    addedToFavesMessage()
+    addedToFavesMessage();
+    hideNoFaves();
   } else {
     favesFullMessage()
   }
   return null; 
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  fave.addEventListener('click', addToFaves)
-});
-
-//add to faves for 2nd color
-function addToFaves2() {
-  
-  color = section2colors[section2colors.length - 1];
-
-  if (!faveColors.includes(color)&& faveColors.length<10) {
-    fave2.src="images/filledHeart.png";
-    faveColors.push(color);
-    addColorToTable(faveColors.length, color);
-    addedToFavesMessage()
-  } else {
-    favesFullMessage()
-  }
-  return null; 
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave2.addEventListener('click', addToFaves2)
-});
-
-//add to faves for 3rd color
-function addToFaves3() {
-  color = section3colors[section3colors.length - 1];
-
-  if (!faveColors.includes(color)&& faveColors.length<10) {
-    fave3.src="images/filledHeart.png";
-    faveColors.push(color);
-    addColorToTable(faveColors.length, color);
-    addedToFavesMessage()
-  } else {
-    favesFullMessage()
-  }
-  return null; 
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave3.addEventListener('click', addToFaves3)
-});
-
-//add to faves for 4th color
-function addToFaves4() {
-  
-  color = section4colors[section4colors.length - 1];
-
-  if (!faveColors.includes(color)&& faveColors.length<10) {
-    fave4.src="images/filledHeart.png"
-    faveColors.push(color);
-    addColorToTable(faveColors.length, color);
-    addedToFavesMessage()
-  } else {
-    favesFullMessage()
-  }
-  return null; 
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave4.addEventListener('click', addToFaves4)
-});
-
-//add to faves for 5th color
-function addToFaves5() {
-  color = section5colors[section5colors.length - 1];
-  if (!faveColors.includes(color)&& faveColors.length<10) {
-    fave5.src="images/filledHeart.png"
-    faveColors.push(color);
-    addColorToTable(faveColors.length, color);
-    addedToFavesMessage()
-  } else {
-    favesFullMessage()
-  }
-  
-  return null; 
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  fave5.addEventListener('click', addToFaves5)
-}); 
 
 //favourites messages!
 
