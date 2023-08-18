@@ -1,3 +1,6 @@
+//New colours button
+const changeColorButton = document.getElementById('newColors');
+
 //colour sections
 const colorSection1 = document.getElementById('colour1');
 const colorSection2 = document.getElementById('colour2');
@@ -89,37 +92,39 @@ const changeColorNew = (randomColor, colorSection,colorText,array ) => {
 }
 
 // Listen for the space key press event and activate color change if lock is open
-const activateColorChange = (event) => {
-    if (event.code === 'Space' || event.code === 'SpaceBar') {
+const activateColorChange = () => {
+    // if (event.code === 'Space' || event.code === 'SpaceBar') {
       if(lock1.src.endsWith("lock.png")){
         getColour1();
-      } else if (lock1.src.endsWith("lockClosed.png")){
-        lock1.removeEventListener('click',activateColorChange);
-      }
+      } 
+      // else if (lock1.src.endsWith("lockClosed.png")){
+      //   lock1.removeEventListener('click',activateColorChange);
+      // }
       if(lock2.src.endsWith("lock.png")){
         getColour2();
-      } else if (lock2.src.endsWith("lockClosed.png")){
-        lock2.removeEventListener('click',activateColorChange);
-      }
+      } 
+      // else if (lock2.src.endsWith("lockClosed.png")){
+      //   lock2.removeEventListener('click',activateColorChange);
+      // }
       if(lock3.src.endsWith("lock.png")){
         getColour3();
-      } else if (lock3.src.endsWith("lockClosed.png")){
-        lock3.removeEventListener('click',activateColorChange);
-      }
+      } 
+      // else if (lock3.src.endsWith("lockClosed.png")){
+      //   lock3.removeEventListener('click',activateColorChange);
+      // }
       if(lock4.src.endsWith("lock.png")){
         getColour4();
-      } else if (lock4.src.endsWith("lockClosed.png")){
-        lock4.removeEventListener('click',activateColorChange);
-      }
+      } 
+      // else if (lock4.src.endsWith("lockClosed.png")){
+      //   lock4.removeEventListener('click',activateColorChange);
+      // }
       if(lock5.src.endsWith("lock.png")){
         getColour5();
-      } else if (lock5.src.endsWith("lockClosed.png")){
-        lock5.removeEventListener('click',activateColorChange);
-      }
-    }
+      } 
+   
 };
 
-document.addEventListener('keydown', activateColorChange)
+changeColorButton.addEventListener('click', activateColorChange)
 
 
 //change lock functions

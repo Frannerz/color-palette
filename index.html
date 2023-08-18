@@ -18,16 +18,16 @@
          onclick="togglePanel()">
     </header>
   
-  <div class="wrapContainer">
+ <div class="wrapContainer">
+   <div class = "main-area">
 
+   
     <div class="flex-container">
         <section class="flex-item" id="colour1">
-          <div id="menuBar">
             <p id="whichColour1" class="menu">#E48CF4</p>
             <img src="./images/copy.png" id="copy" class="copy menu" alt="copy" title="Copy this colour code!">
             <img src="./images/lock.png" id="lock-icon" class="menu" title="Lock in this colour!" alt="lock">
             <img src="./images/emptyHeart.png" class="addToFaves menu heart" id="fave1" title="Add to faves!">
-          </div>
         </section>
         <section class="flex-item" id="colour2">
             <p id="whichColour2" class="menu">#8CCEf4</p>
@@ -55,6 +55,11 @@
         </section>
         <div id="message"></div>
     </div>
+    <button id="newColors" class="rainbow-text">
+        Generate new colours!
+      </button>
+      
+  </div>
     <div class="side-panel" id="sidePanel">
         <h2>Faves</h2>
        
@@ -69,7 +74,7 @@
         </div>
     </div>
 
-  </div>
+ </div>
     <script src="script.js"></script> 
 </body>
 </html>
